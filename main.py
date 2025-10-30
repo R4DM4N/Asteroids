@@ -34,14 +34,13 @@ def main():
                 running = False
         # Clear the screen and set the screen background
         screen.fill("black")        
-        
-        # Draw Player
-        print(player)
-        if player is not None:
-            player.draw(screen)
-        else:
-            raise Exception("Player has not been initialized!")
-        #pygame.draw.polygon(screen, "white", player.triangle(), PLAYER_LINE_WIDTH)
+
+        # Move Player
+        player.update(dt)
+        # Draw Player       
+        player.draw(screen)
+
+
 
 
         # Go ahead and update the screen with what we've drawn.
