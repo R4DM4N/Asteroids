@@ -1,7 +1,5 @@
 # gitignore these folders/files
-
-examples
-
+examples/
 __pycache__/
 *.pyc
 
