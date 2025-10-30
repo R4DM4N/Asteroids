@@ -4,10 +4,8 @@ from circleshape import *
 
 
 class Player(CircleShape):
-    def __init__(self, x, y, radius):
-        self.x = x
-        self.y = y        
-        super().__init__(self.x, self.y, radius)
+    def __init__(self, x, y, radius):  
+        super().__init__(x, y, radius)
         self.rotation = 0
 
     # in the player class
