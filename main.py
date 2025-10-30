@@ -23,7 +23,7 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        screen.fill(BLACK)
+        screen.fill("black")
         pygame.display.flip() 
         
         # Cap the frame rate
