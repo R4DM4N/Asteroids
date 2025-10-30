@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from circleshape import CircleShape
 
 def main():
     # inintialize pygame and game components
