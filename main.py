@@ -1,6 +1,7 @@
 import pygame
 from constants import *
-from circleshape import CircleShape
+from circleshape import *
+from player import *
 
 def main():
     # inintialize pygame and game components
@@ -9,10 +10,19 @@ def main():
     clock = pygame.time.Clock()
 
     print("Starting Asteroids!")
-    print("Screen width: 1280")
-    print("Screen height: 720")
-    #print("Screen width: ", SCREEN_WIDTH)
-    #print("Screen height: ", SCREEN_HEIGHT)	
+    print("Screen width: ", SCREEN_WIDTH)
+    print("Screen height: ", SCREEN_HEIGHT)
+    print(type(Player))
+    #SPAWN IN PLAYER
+    player = Player(SCREEN_WIDTH /2, SCREEN_HEIGHT /2, PLAYER_RADIUS)
+    
+    # debug
+
+    if player is not None:
+        player.draw(screen)
+    else:
+        raise Exception("Player has not been initialized!")
+	
     # init delta time fps counter /1000 conrt to s
     dt = 0     
 
@@ -22,8 +32,20 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+        # Clear the screen and set the screen background
+        screen.fill("black")        
+        
+        # Draw Player
+        print(player)
+        if player is not None:
+            player.draw(screen)
+        else:
+            raise Exception("Player has not been initialized!")
+        #pygame.draw.polygon(screen, "white", player.triangle(), PLAYER_LINE_WIDTH)
 
-        screen.fill("black")
+
+        # Go ahead and update the screen with what we've drawn.
+        # This MUST happen after all the other drawing commands.
         pygame.display.flip() 
         
         # Cap the frame rate
