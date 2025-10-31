@@ -22,9 +22,12 @@ class CircleShape(pygame.sprite.Sprite):
         pass
 
     def centre(self):
-        return (int(self.position.x),int(self.position.y))
+        return ((int(self.position.x),int(self.position.y)),)
 
     def distance(self, other):
+        return self.position.distance_to(other.position)
+        
+    
+    def collision(self, other):
         colission_radius = self.radius + other.radius
-        distance = self.distance_to(other.centre())
-        return distance < colission_radius
+        return self.distance(other) < colission_radius

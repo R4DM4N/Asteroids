@@ -46,6 +46,12 @@ def main():
         #drawable.draw(screen) Works on sprites only not vectors
         for unit in drawable:
             unit.draw(screen)
+        
+        for unit in asteroids:
+            if player.collision(unit):
+                print(player, " collision with " , unit)
+                print("GAME OVER!")
+                running = False
 
 
         # Go ahead and update the screen with what we've drawn.
