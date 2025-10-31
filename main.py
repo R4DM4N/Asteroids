@@ -18,7 +18,7 @@ def main():
     # Create all play objects after this change
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
-    AsteroidField.containers = (updatable)
+    AsteroidField.containers = (updatable,)
     
     #SPAWN IN PLAY objects
     asteroidfield = AsteroidField() 
