@@ -8,6 +8,8 @@ from shot import Shot
 def main():
     # inintialize pygame and game components
     pygame.init()
+    pygame.font.init()
+
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
 
@@ -21,7 +23,7 @@ def main():
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable,)
-    Shot.containers = (updatable, drawable)
+    Shot.containers = (shots, updatable, drawable)
 
     
     #SPAWN IN PLAY objects
@@ -64,7 +66,11 @@ def main():
                     asteroid.kill()
                     shot.kill()
 
-
+        # After all your draw calls
+        #font = pygame.font.Font(None, 36)
+        #text = font.render(f"Shots: {len(shots)}", True, "white")
+        #screen.blit(text, (10, 10))
+        print(f"Active shots: {len(shots)}")
         # Go ahead and update the screen with what we've drawn.
         pygame.display.flip() 
         
