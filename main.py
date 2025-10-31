@@ -1,7 +1,7 @@
 import pygame
 from constants import *
-from circleshape import *
-from player import *
+from player import Player
+from asteroid import Asteroid
 from asteroidfield import AsteroidField
 
 def main():
@@ -10,26 +10,22 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
 
-    print("Starting Asteroids!")
-    print("Screen width: ", SCREEN_WIDTH)
-    print("Screen height: ", SCREEN_HEIGHT)
-
     # Group containers
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
 
     # Create all play objects after this change
     Player.containers = (updatable, drawable)
+    Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
-
-
-
+    
     #SPAWN IN PLAY objects
-    player = Player(SCREEN_WIDTH /2, SCREEN_HEIGHT /2, PLAYER_RADIUS)  
-	
     asteroidfield = AsteroidField() 
-
-    # Init delta time fps counter /1000 conrt to s
+    
+    player = Player(SCREEN_WIDTH /2, SCREEN_HEIGHT /2)  
+	
+        # Init delta time fps counter /1000 conrt to s
     dt = 0     
 
     # Begin infinite game loop

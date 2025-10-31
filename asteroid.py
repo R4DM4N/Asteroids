@@ -8,10 +8,10 @@ class Asteroid(CircleShape):
 
     def draw(self, screen):
         # sub-classes must override
-        pygame.draw.circle(1,"white", self.position, self.radius, ASTEROID_LINE_WIDTH)
+        pygame.draw.circle(screen, "white", self.position, self.radius, ASTEROID_LINE_WIDTH)
 
     def rotate(self, dt):
         pass
 
     def update(self, dt):
-        self.velocity *= dt
+        self.velocity += self.velocity * dt
