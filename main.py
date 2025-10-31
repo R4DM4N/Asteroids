@@ -51,10 +51,18 @@ def main():
             unit.draw(screen)
         
         #collistion detection
-        for unit in asteroids:
-            if player.collision(unit):
+        for asteroid in asteroids:
+            if player.collision(asteroid):
                 print("GAME OVER!")
                 running = False
+        
+        for asteroid in asteroids:
+            for shot in shots:
+                print(asteroid)    
+                if shot.collision(asteroid):
+                    print("hit,")
+                    asteroid.kill()
+                    shot.kill()
 
 
         # Go ahead and update the screen with what we've drawn.

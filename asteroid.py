@@ -7,11 +7,10 @@ class Asteroid(CircleShape):
         super().__init__(x, y, radius)
 
     def draw(self, screen):
-        # boots solution pygame needs a tuple of ints.
-        # it does work with this but this way we avoind breaking
-        # changes should they update the pygame library
-        #center = (int(self.position.x), int(self.position.y))
-        pygame.draw.circle(screen, "white", self.position, int(self.radius), 2)
+        pygame.draw.circle(screen, "white", self.position, self.radius, 2)
     
     def update(self, dt):
         self.position += self.velocity * dt
+    
+    def kill(self):
+        pygame.sprite.Sprite.kill(self) 

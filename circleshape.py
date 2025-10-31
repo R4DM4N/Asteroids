@@ -31,3 +31,7 @@ class CircleShape(pygame.sprite.Sprite):
     def collision(self, other):
         colission_radius = self.radius + other.radius
         return self.distance(other) < colission_radius
+    
+    def kill(self):
+        pygame.sprite.Sprite.kill(self) 
+    
