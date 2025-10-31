@@ -22,16 +22,17 @@ class Asteroid(CircleShape):
             new_radius = self.radius - ASTEROID_MIN_RADIUS
             velocity_tuple = tuple(self.velocity)
             rnd_rotation = random.randint(20,50)
-            x = self.position.x
-            y = self.position.y
             velocity_mult = 0
-            # create new asteroid
+            
             for x in range(1,3):
+                #scaler math
                 rnd_rotation *= -1
                 velocity_mult += 1.2
-                asteroid = Asteroid(x, y, new_radius)
                 # set velocity
-                asteroid.velocity = pygame.Vector2(velocity_tuple) * velocity_mult
+                velocity = pygame.Vector2(velocity_tuple) * velocity_mult
                 velocity = velocity.rotate(rnd_rotation)
+                # create
+                asteroid = Asteroid(self.position.x, self.position.y, new_radius)
+                asteroid.velocity = velocity
         # remove if too small or has been broken into two
         self.kill()   

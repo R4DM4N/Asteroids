@@ -17,6 +17,3 @@ class Shot(CircleShape):
         self.lifetime -= dt
         if self.lifetime <= 0:
             self.kill()
-
-    #def kill(self):
-    #    pygame.sprite.Sprite.kill(self) 
