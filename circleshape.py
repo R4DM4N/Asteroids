@@ -23,7 +23,7 @@ class CircleShape(pygame.sprite.Sprite):
 
     def centre(self):
         # I know Boots wanted this case to INT() but pygame uses floats for vectors
-        return (((self.position.x),(self.position.y)),)
+        return ((self.position.x),(self.position.y))
 
     def distance(self, other):
         return self.position.distance_to(other.position)    
