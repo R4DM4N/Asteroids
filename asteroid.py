@@ -11,7 +11,7 @@ class Asteroid(CircleShape):
         # it does work with this but this way we avoind breaking
         # changes should they update the pygame library
         #center = (int(self.position.x), int(self.position.y))
-        pygame.draw.circle(screen, "white", self.centre(), int(self.radius), 2)
+        pygame.draw.circle(screen, "white", self.position, int(self.radius), 2)
     
     def update(self, dt):
         self.position += self.velocity * dt

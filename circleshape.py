@@ -25,8 +25,7 @@ class CircleShape(pygame.sprite.Sprite):
         return ((int(self.position.x),int(self.position.y)),)
 
     def distance(self, other):
-        return self.position.distance_to(other.position)
-        
+        return self.position.distance_to(other.position)    
     
     def collision(self, other):
         colission_radius = self.radius + other.radius
