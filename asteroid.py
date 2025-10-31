@@ -8,8 +8,10 @@ class Asteroid(CircleShape):
 
     def draw(self, screen):
         # boots solution pygame needs a tuple of ints.
-        center = (int(self.position.x), int(self.position.y))
-        pygame.draw.circle(screen, "white", self.position, int(self.radius), 2)
+        # it does work with this but this way we avoind breaking
+        # changes should they update the pygame library
+        #center = (int(self.position.x), int(self.position.y))
+        pygame.draw.circle(screen, "white", self.center(), int(self.radius), 2)
     
     def update(self, dt):
         self.position += self.velocity * dt
