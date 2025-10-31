@@ -22,7 +22,8 @@ class CircleShape(pygame.sprite.Sprite):
         pass
 
     def centre(self):
-        return ((int(self.position.x),int(self.position.y)),)
+        # I know Boots wanted this case to INT() but pygame uses floats for vectors
+        return (((self.position.x),(self.position.y)),)
 
     def distance(self, other):
         return self.position.distance_to(other.position)    
