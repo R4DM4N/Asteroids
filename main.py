@@ -1,4 +1,5 @@
 import pygame
+import random
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -62,7 +63,7 @@ def main():
                 if shot.collision(asteroid):
                     print("hit,")
                     print(f"Active shots: {len(shots)}")
-                    asteroid.kill()
+                    asteroid.split()
                     shot.kill()
 
         # After all your draw calls
