@@ -6,6 +6,7 @@ class Shot(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, SHOT_RADIUS)
         pygame.sprite.Sprite.__init__(self, self.containers)
+        self.lifetime = SHOT_LIFETIME
 
     def draw(self, screen):
         # code taken from asteroid.py
@@ -13,6 +14,9 @@ class Shot(CircleShape):
     
     def update(self, dt):
         self.position += self.velocity * dt
+        self.lifetime -= dt
+        if self.lifetime <= 0:
+            self.kill()
 
-    def kill(self):
-        pygame.sprite.Sprite.kill(self) 
+    #def kill(self):
+    #    pygame.sprite.Sprite.kill(self) 

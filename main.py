@@ -8,7 +8,6 @@ from shot import Shot
 def main():
     # inintialize pygame and game components
     pygame.init()
-    pygame.font.init()
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
@@ -59,10 +58,10 @@ def main():
                 running = False
         
         for asteroid in asteroids:
-            for shot in shots:
-                print(asteroid)    
+            for shot in shots:   
                 if shot.collision(asteroid):
                     print("hit,")
+                    print(f"Active shots: {len(shots)}")
                     asteroid.kill()
                     shot.kill()
 
@@ -70,7 +69,7 @@ def main():
         #font = pygame.font.Font(None, 36)
         #text = font.render(f"Shots: {len(shots)}", True, "white")
         #screen.blit(text, (10, 10))
-        print(f"Active shots: {len(shots)}")
+        #print(f"Active shots: {len(shots)}")
         # Go ahead and update the screen with what we've drawn.
         pygame.display.flip() 
         
