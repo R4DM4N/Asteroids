@@ -1,3 +1,4 @@
+from simple_term_menu import TerminalMenu
 from collections import ChainMap
 from constants import *
 
@@ -19,7 +20,8 @@ def main():
     settings["SCREEN_HEIGHT"] = 480
 
     print("Screen Width:", settings["SCREEN_WIDTH"], " Screen Height:", settings["SCREEN_HEIGHT"])
-
+    menu()
+    
 def title():
     name = ["Ass", "Ter", "Oyds", "Blaster"]
     for word in name:
@@ -30,6 +32,16 @@ def title():
 def options():
     for _, (k,v) in enumerate(settings.items()):
         print(k, v)
+
+def menu():
+    key = "r"
+    print("")
+    #while key is not "q":
+
+    options = ["entry 1", "entry 2", "entry 3"]
+    terminal_menu = TerminalMenu(options)
+    menu_entry_index = terminal_menu.show()
+    print(f"You have selected {options[menu_entry_index]}!")        
 
 
 if __name__ == "__main__":
